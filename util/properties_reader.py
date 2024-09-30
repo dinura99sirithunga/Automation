@@ -1,14 +1,3 @@
-def read_properties(file_path):
-    config = {}
-    absolute_path = os.path.join(os.path.dirname(__file__), '..', file_path)
-    print(f"Looking for config file at: {absolute_path}")  # Debugging output
-
-    with open(absolute_path, 'r') as file:
-        for line in file:
-            if '=' in line and not line.startswith('#'):
-                key, value = line.strip().split('=', 1)
-                config[key] = value
-    return config
 import os
 
 def read_properties(file_path):

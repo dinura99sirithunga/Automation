@@ -39,18 +39,18 @@ class PaymentPage:
         setCustomAmountTxtbox.send_keys(amount)
 
     def is_confirmbtn_disabled(self):
-        confimbtn = wait_for_element_to_be_visible(
+        confirmbtn = wait_for_element_to_be_visible(
             self.driver,
             (By.ID, "split-bill")
         )
-        return confimbtn.get_attribute("disabled") is not None
+        return confirmbtn.get_attribute("disabled") is not None
 
     def is_confirmbtn_enabled(self):
-        confimbtn = wait_for_element_to_be_visible(
+        confirmbtn = wait_for_element_to_be_visible(
             self.driver,
             (By.ID, "split-bill")
         )
-        return confimbtn.is_enabled()
+        return confirmbtn.is_enabled()
 
     def clickConfirmBtn(self):
         confimbtn = wait_for_element_to_be_visible(
@@ -62,11 +62,10 @@ class PaymentPage:
 
 
     def clickOnTipBtn(self, amount):
-        wait_for_element_to_be_visible(
+        tipBtn = wait_for_element_to_be_visible(
             self.driver,
             (By.ID, "tip_" + amount)
         )
-        tipBtn = self.driver.find_element(By.ID, "tip_" + amount)
         tipBtn.click()
 
     def enter_card_info(self, card_number, expiry_date, cvv):
